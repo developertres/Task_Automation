@@ -1,0 +1,159 @@
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          Service Access Request Form
+          <div class="card-header-actions">
+            <a href="https://valor-software.com/ngx-bootstrap/#/collapse" target="_blank">
+              <i class="icon-docs"></i>&nbsp;&nbsp;<small className="text-muted">Help</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="form-horizontal">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th colspan="6">
+                    <p style="text-align: center;font-size: 1.8rem;margin-bottom: -15px;">Cummins Active Directory -
+                      Service Account Request</p>
+                    <br>
+                    <p style="text-align: center;margin-bottom: 0.3rem;font-weight: 500;">Service accounts are used in
+                      Windows Server environments where users need to run or configure the applications, application
+                      services, and schedule tasks. One Service account cannot be used for multiple applications.</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody style="font-weight: 500;">
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="width: 25%;vertical-align: middle;">Name</td>
+                  <td style="width: 25%;"><input type="text" id="input-normal" name="input-normal" class="form-control">
+                  </td>
+                  <td colspan="2" style="width: 25%;vertical-align: middle;">Title</td>
+                  <td style="width: 25%;"><input type="text" id="input-normal" name="input-normal" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">Organization</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                  <td colspan="2">Supervisor</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="6"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Application Name</td>
+                  <td colspan="4"><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Service Account Role</td>
+                  <td colspan="4"><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Servers Affected</td>
+                  <td colspan="4"><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Site Codes of Servers</td>
+                  <td colspan="4"><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="6" style="vertical-align: middle;">
+                    <p style="text-align: justify;">All service accounts will be named using the standard of a prefix of
+                      the domain they are created in, followed by a short indicator of the Application, and another
+                      indicator or the role of the service account. There is a maximum of 20 characters that can be used
+                      for the name.
+                      For example, a service account to be used for the Hyperion application performing file transfer
+                      would be named “CED-HyperionFTP”
+                      Please select a service account name that meets this standard, and list it in the Service Account
+                      Name field below.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">New or Existing Account?</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                  <td colspan="2" style="vertical-align: middle;">Service Account Name</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="text-align: justify;">What is the intended purpose of this service account?<br>
+                    Provide the components related to this application which may be related to the application and also
+                    provide the status if they exist in Cummins environment which may be using the same service account.
+                  </td>
+                  <td colspan="4"><textarea id="textarea-input" name="textarea-input" rows="8"
+                      class="form-control"></textarea></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Groups that Service Account needs to belong</td>
+                  <td colspan="4"><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: middle;">Name of Account Owner</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                  <td colspan="2" style="vertical-align: middle;">WWID of Account Owner</td>
+                  <td><input type="text" id="input-normal" name="input-normal" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="text-align: justify;vertical-align: middle;">All service accounts will be
+                    denied the ability to use Remote Desktop by default.<br>
+                    If this account must use Remote Desktop, document those requirements.<br>
+                    Operational approval is required.
+                  </td>
+                  <td colspan="4"><textarea id="textarea-input" name="textarea-input" rows="8"
+                      class="form-control"></textarea></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="2" style="text-align: justify;vertical-align: middle;">All service accounts will be
+                    denied the ability to use the Internet by default.<br>
+                    If this account must have access to the Internet, document those requirements.<br>
+                    Operational approval is required
+                  </td>
+                  <td colspan="4"><textarea id="textarea-input" name="textarea-input" rows="8"
+                      class="form-control"></textarea></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="padding: 0.3rem;"></td>
+                <tr>
+                <tr>
+                  <td colspan="6" style="text-align: justify;vertical-align: middle;">
+                    Please provide exact step-by-step instructions for actions that need to be taken to keep the
+                    application/service working after this Service Account’s password change is changed. Please include
+                    any application configuration, service, scheduled task, or any other interface within which changes
+                    would need to be made to restore complete functionality.<br>
+                    For Example (For using New Service Account in Windows Services):<br>
+                    1. Go to Start > RUN > Type CMD > Type services.msc > Right Click on Service " IIS " > Properties
+                    <br>
+                    2. Select logon tab > Put the new password and click on OK.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
+    <!--/.row-->
+  </div>

@@ -1,0 +1,54 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <form #contactForm="ngForm">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> User Management
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Users</th>
+                                    <th>Admin</th>
+                                    <th>Service Desk</th>
+                                    <th>RDS</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" name="test" id="test"></td>
+                                </tr>
+                                <tr *ngFor="let policy of policies">
+                                    <td>{{ policy.id }}</td>
+                                    <td>{{ policy.username }}</td>
+                                    <td><input class="form-check-input" type="checkbox" id="inline-checkbox"
+                                            value="Admin" name="Admin"
+                                            style="margin-left: 0.9rem !important;height:18px;width:18px;"                                           
+                                            [(ngModel)]="policy.admin" [checked]="true"></td>
+                                    <td><input class="form-check-input" type="checkbox" id="inline-checkbox"
+                                            value="ServiceDesk" name="ServiceDesk"
+                                            style="margin-left: 1.8rem !important;height:18px;width:18px;"
+                                            [(ngModel)]="policy.servicedesk" ></td>
+                                    <td><input class="form-check-input" type="checkbox" id="inline-checkbox" value="RDS"
+                                            name="rds" style="margin-left: 0.6rem !important;height:18px;width:18px;"
+                                            [(ngModel)]="policy.rds"></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-sm btn-primary"
+                                            (click)="selectPolicy(policy)"><i class="fa fa-dot-circle-o"></i>
+                                            Submit</button>
+                                        <button type="cancel" class="btn btn-sm btn-danger"
+                                            (click)="deletePolicy(policy.id)"><i class="fa fa-ban"></i> Cancel</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

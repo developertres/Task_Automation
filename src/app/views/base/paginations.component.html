@@ -1,0 +1,147 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      Help Document
+    </div>
+    <div class="card-body">
+      <label><strong>Document Control</strong></label>
+      <p style="text-indent: 3rem;">This document is confidential and should not be reproduced, distributed,
+        electronically forwarded to those other than who are intended to receive this document by its author without the
+        permission from Cummins Inc.</p>
+      <label><strong>Background</strong></label>
+      <p style="text-indent: 3rem;">Cummins utilizes the Microsoft Windows operating system. Windows runs processes in
+        the background, and each process runs in the context of a user. Some of these services run as built-in accounts,
+        such Network Service or Local System, while other services must run as a specific user which is granted access
+        to resource on the network. These specific user accounts must be managed and access granted only as required to
+        ensure that they are both functional and secure.</p>
+      <p style="text-indent: 3rem;">This document will detail the requirements for these service accounts within the
+        Cummins environment, will include the request form, and the steps for processing.</p>
+      <label><strong>Requirements</strong></label>
+      <p style="text-indent: 3rem;">Exceptions to the following requirements can be made using the operational exception
+        process. See Appendix B.</p>
+      <p style="text-indent: 3rem;"><u>Provisioning</u></p>
+      <p style="margin-left: 5rem;">Most Windows systems in the Cummins Windows environment are part of an Active
+        Directory domain. The service accounts will be provisioned as an AD domain account.</p>
+      <p style="margin-left: 5rem;">The only locally created service accounts will be for Windows systems that are not
+        able to be in an Active Directory domain, and must be setup in a Workgroup.</p>
+      <p style="text-indent:3rem;"><u>Naming</u></p>
+      <p style="margin-left: 5rem;">Windows accounts are limited to 20 characters. A standard naming structure is needed
+        to easily differentiate service accounts from normal users, identifies what the account's role is, and stays
+        within the 20 character limit. The following components will make up a standard service account name:</p>
+
+      <ul style="list-style-type:disc;" style="margin-left: 5rem;">
+        <li>A prefix, in uppercase, of the domain name</li>
+        <li>An underscore character to separate domain from the role</li>
+        <li>A short indicator of the application</li>
+        <li>An indicator of the service role</li>
+      </ul>
+      <p style="margin-left: 5rem;">An example service account would be CED-vSphereSQL, and this would be in the CED
+        domain, and would be the SQL service for the vSphere application.</p>
+      <p style="text-indent:3rem;"><u>Organizational Unit</u></p>
+      <p style="margin-left: 5rem;">Service accounts will all reside within the same Organizational Unit (OU) in Active
+        Directory. </p>
+      <p style="margin-left: 5rem;">The OU will be named “Service Accounts” and will be located in the top level “Admin”
+        OU. </p>
+      <p style="margin-left: 5rem;">The operations team managing service accounts will be delegated full control over
+        User objects in the “Service Accounts” OU.</p>
+
+      <p style="text-indent:3rem;"><u>Passwords</u></p>
+      <p style="margin-left: 5rem;">Passwords will be set by the operations team managing the service accounts. The
+        passwords will be created using a random password generator with sufficient length (at least 12 characters) and
+        complexity.</p>
+      <p style="margin-left: 5rem;">The passwords will be stored in a centralized secure password database. Only
+        individuals on the operations team or the application team (listed on the service account form) can have access
+        to the password.</p>
+      <p style="margin-left: 5rem;">Passwords will be setup as non-expiring, and set so as the user cannot change the
+        password.</p>
+
+      <p style="text-indent:3rem;"><u>Privileges</u></p>
+      <p style="margin-left: 5rem;">Service accounts can be delegated administration rights over specific servers. This
+        right is given by adding the service account to a security group called g_ServerName_Admin (where ServerName is
+        the name of the server) within the Active Directory domain.</p>
+      <p style="margin-left: 5rem;">Service accounts will require the ability to login to a server to execute tasks.</p>
+
+      <p style="text-indent:3rem;"><u>Remote Desktop</u></p>
+      <p style="margin-left: 5rem;">A service account will not have the capability to remote desktop into a server. It
+        will have local login rights only. Applications should not normally require being run in remote desktop mode.
+      </p>
+      <p style="margin-left: 5rem;">If a user must run an install or execute tasks as a service account in remote
+        desktop mode, they use the Run As feature within Windows to run the task as the service account.</p>
+
+      <p style="text-indent:3rem;"><u>Internet Access</u></p>
+      <p style="margin-left: 5rem;">Access to the internet will be limited for the service accounts. The primary purpose
+        is to execute tasks and run processes. It is known that some services require access to access the internet for
+        application updates, and this can be granted via operational exceptions.</p>
+      <p style="margin-left: 5rem;">This will be implemented by adding the service account to the g_NoInternet security
+        group.</p>
+
+      <p style="text-indent:3rem;"><u>Account Usage</u></p>
+      <p style="margin-left: 5rem;">Service accounts This will be implemented by adding the service account to the
+        g_NoInternet security group.</p>
+
+      <p style="text-indent:3rem;"><u>Account Setup</u></p>
+      <p style="margin-left: 5rem;">The following items detail how the user account is to be setup within Active
+        Directory. This standardizes how the service account should look, and what information should be maintained.</p>
+
+      <p style="margin-left: 6rem;"><em>Display Name</em></p>
+      <p style="margin-left: 7rem;">The display name will be simply the service account name.</p>
+      <p style="margin-left: 7rem;">Example : <label style="color: red;">CED-vSphereSQL</label></p>
+
+      <p style="margin-left: 6rem;"><em>Description Field</em></p>
+      <p style="margin-left: 7rem;">The description will begin with “Service Account:” and be followed by a brief
+        statement about the application and the role of the application.</p>
+      <p style="margin-left: 7rem;">Example : <label style="color: red;">Service Account: vSphere SQL Service</label>
+      </p>
+
+      <p style="margin-left: 6rem;"><em>Office Field</em></p>
+      <p style="margin-left: 7rem;">The office field will be used to store the application owner or contact. This may be
+        a single name, or several names. It will be prefixed with “Owner:”.</p>
+      <p style="margin-left: 7rem;">Example : <label style="color: red;">Owner: Feng Liu</label></p>
+
+      <p style="margin-left: 6rem;"><em>Notes Field (Telephones tab)</em></p>
+      <p style="margin-left: 7rem;">The notes field will be used to store which site codes the service account is used
+        at. This can include multiple site codes if the service requires it, or Global for service accounts used widely.
+      </p>
+      <p style="margin-left: 7rem;">Example : <label style="color: red;">US.COL.CISE, UK.RED.REDC</label></p>
+      <p style="margin-left: 7rem;">Example : <label style="color: red;">Global</label></p>
+
+      <p style="margin-left: 6rem;"><em>UID/GID Attribute</em></p>
+      <p style="margin-left: 7rem;">Linux/Unix systems use a local user ID number (UID) and group ID number (GID) to
+        identify users on the system. These UID: GID numbers are a simple integer, for example 501:501. Microsoft
+        Windows Active Directory use a different user ID structure to identify users, groups, and machines. Each ID,
+        also called a Security Identifier (SID) is constructed of different segments that identify the security version,
+        the issuing authority type, the machine, and the identity itself. In addition it’s not a part of Kerberos
+        authentication and Microsoft has extended their schema/added an attribute in Active Directory for environments
+        where in Linux/Unix OS flavors are also used.</p>
+
+      <label><strong>Auditing</strong></label>
+      <p style="text-indent: 3rem;"><u>Account Listing</u></p>
+      <p style="margin-left: 5rem;">The service accounts will be exported to a file for review on a weekly basis. This
+        file will be stored on network based storage that is easily accessible. The weekly exports will be kept long
+        term to allow historical views of service accounts</p>
+
+      <p style="text-indent: 3rem;"><u>Account Permission Listing</u></p>
+      <p style="margin-left: 5rem;">The groups that the service accounts will be exported to a file for review on a
+        weekly basis. This file will be stored on network based storage that is easily accessible. The weekly exports
+        will be kept long term to allow historical views of groups that provide permissions to service accounts</p>
+
+      <p style="text-indent: 3rem;"><u>Account Permission Review</u></p>
+      <p style="margin-left: 5rem;">The groups that the service accounts will be reviewed on a quarterly basis. The
+        basis of this review is to identify any groups that the service accounts are a member of that are not
+        authorized, or should no longer be required.</p>
+      <p style="margin-left: 5rem;">Owners of the service accounts will be contacted for questions.</p>
+
+      <p style="text-indent: 3rem;"><u>Account Activity Review & Disabling</u></p>
+      <p style="margin-left: 5rem;">Tools will be used to analyze service accounts on a quarterly basis. The tool will
+        identify the last time the service account authenticated with the domain. Any service account that has not
+        authenticated in the last 60 days will be disabled, and will be deleted after being disabled for over 30 days.
+      </p>
+
+      <p style="text-indent: 3rem;"><u>Account Owner Review</u></p>
+      <p style="margin-left: 5rem;">The owners that the service accounts will be reviewed on a quarterly basis. Any
+        WWID’s that are invalid will be addressed to the listed Supervisor.</p>
+      <p style="margin-left: 5rem;">Accounts that cannot have a valid owner will be disabled until an owner can be
+        identified.</p>
+    </div>
+  </div>
+</div>

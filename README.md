@@ -1,4 +1,5 @@
-#### Prerequisites
+
+## Prerequisites
 Before you begin, make sure your development environment includes `Node.js®` and an `npm` package manager.
 
 ###### Node.js
@@ -23,7 +24,7 @@ Update guide - see: [https://update.angular.io](https://update.angular.io)
 
 ``` bash
 # clone the repo
-$ git clone https://github.com/coreui/coreui-free-angular-admin-template.git my-project
+$ git clone https://github.com/vigneshbabu801/Task_Automation.git my-project
 
 # go into app's directory
 $ cd my-project
